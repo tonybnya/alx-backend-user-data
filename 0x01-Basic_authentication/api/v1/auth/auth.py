@@ -9,10 +9,13 @@ class Auth:
     """ This class is the template for all authentication system
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        """Check if routes require authentication"""
         pass
 
     def authorization_header(self, request=None) -> str:
+        """Validate all requests to secure the API"""
         pass
 
     def current_user(self, request=None) -> TypeVar('User'):
+        """Get the current user"""
         pass
