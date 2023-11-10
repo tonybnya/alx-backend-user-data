@@ -14,7 +14,9 @@ class Auth:
             return True
 
         for string_path in excluded_paths:
-            if string_path in (path, f"{path}/"):
+            if string_path.endwith('*') and path.startswith(string_path[:-1]):
+                return False
+            elif string_path in (path, f"{path}/"):
                 return False
 
         return True
