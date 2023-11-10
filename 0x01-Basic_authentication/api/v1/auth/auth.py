@@ -10,7 +10,10 @@ class Auth:
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Check if routes require authentication"""
-        pass
+        # Get the length of excluded_paths
+        length = len(excluded_paths)
+        if path is None or excluded_paths is None or not length:
+            return True
 
     def authorization_header(self, request=None) -> str:
         """Validate all requests to secure the API"""
