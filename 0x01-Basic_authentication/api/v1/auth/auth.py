@@ -6,15 +6,15 @@ from typing import List, TypeVar
 
 
 class Auth:
-    """ This class is the template for all authentication system
-    """
+    """This class is the template for all authentication system"""
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Check if routes require authentication"""
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
 
         for string_path in excluded_paths:
-            if string_path.endwith('*') and path.startswith(string_path[:-1]):
+            if string_path.endwith("*") and path.startswith(string_path[:-1]):
                 return False
             elif string_path in (path, f"{path}/"):
                 return False
@@ -26,8 +26,8 @@ class Auth:
         if request is None:
             return None
 
-        return request.headers.get('Authorization', None)
+        return request.headers.get("Authorization", None)
 
-    def current_user(self, request=None) -> TypeVar('User'):
+    def current_user(self, request=None) -> TypeVar("User"):
         """Get the current user"""
         return None
