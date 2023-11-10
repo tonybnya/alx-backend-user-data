@@ -2,17 +2,13 @@
 """ Class BasicAuth that inherits from Auth
 """
 from api.v1.auth.auth import Auth
-from flask import request
-from typing import List, TypeVar
 
 
 class BasicAuth(Auth):
     """This class is the template for all authentication system"""
 
-    def extract_base64_authorization_header(
-            self,
-            authorization_header: str
-        ) -> str:
+    def extract_base64_authorization_header(self,
+                                            authorization_header: str) -> str:
         """Get the Base64 part of the Authorization header
         for a Basic Authentication
         """
