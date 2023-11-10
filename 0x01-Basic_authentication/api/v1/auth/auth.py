@@ -13,6 +13,12 @@ class Auth:
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
 
+        for string_path in excluded_paths:
+            if string_path in (path, f"{path}/"):
+                return False
+
+        return True
+
     def authorization_header(self, request=None) -> str:
         """Validate all requests to secure the API"""
         pass
