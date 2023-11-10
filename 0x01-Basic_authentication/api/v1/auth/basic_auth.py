@@ -32,7 +32,7 @@ class BasicAuth(Auth):
             or not isinstance(base64_authorization_header, str)
         ):
             return None
-    
+
         try:
             data = b64decode(base64_authorization_header)
         except Exception:
