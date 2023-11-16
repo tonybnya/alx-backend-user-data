@@ -19,7 +19,7 @@ class User(Base):
         self.last_name = kwargs.get('last_name')
 
     @property
-    def password(self) -> str:
+    def password(celf) -> str:
         """ Getter of the password
         """
         return self._password
