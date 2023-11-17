@@ -9,12 +9,11 @@ from sqlalchemy.orm.exc import NoResultFound
 
 def _hash_password(password: str) -> str:
     """Hash password"""
-    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
 
 
 class Auth:
-    """Auth class to interact with the authentication database.
-    """
+    """Auth class to interact with the authentication database."""
 
     def __init__(self):
         self._db = DB()
@@ -27,4 +26,4 @@ class Auth:
             bcrypted = _hash_password(password)
             return self._db.add_user(email=email, hashed_password=bcrypted)
         else:
-            return ValueError(f"User {email} already exists")
+            raise ValueError(f"User {email} already exists")
