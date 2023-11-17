@@ -92,7 +92,17 @@ def get_reset_password_token() -> str:
     :return: JSON payload of the form of
     - {"email": "<user email>", "reset_token": "<reset token>"}
     """
-    pass
+    try:
+        email = request.form("email")
+    except KeyError:
+        abort(403)
+
+    try:
+        reset_token = AUTH.get_reset_password_token(email)
+    except ValueError:
+        abort(403)
+
+    return jsonify({"email": email, "reset_token": reset token}), 200
 
 
 if __name__ == "__main__":
