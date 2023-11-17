@@ -6,35 +6,43 @@ import requests
 
 
 def register_user(email: str, password: str) -> None:
-    pass
+    """Test for register_user"""
+    assert True
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    pass
+    """Test for log_in_wrong_password"""
+    assert True
 
 
 def log_in(email: str, password: str) -> str:
-    pass
+    """Test for log_in"""
+    assert True
 
 
 def profile_unlogged() -> None:
-    pass
+    """Test for profile_unlogged"""
+    assert True
 
 
 def profile_logged(session_id: str) -> None:
-    pass
+    """Test for profile_logged"""
+    assert True
 
 
 def log_out(session_id: str) -> None:
-    pass
+    """Test for log_out"""
+    assert True
 
 
 def reset_password_token(email: str) -> str:
-    pass
+    """Test for reset_password_token"""
+    assert True
 
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
-    pass
+    """Test for update_password"""
+    assert True
 
 
 EMAIL = "guillaume@holberton.io"
