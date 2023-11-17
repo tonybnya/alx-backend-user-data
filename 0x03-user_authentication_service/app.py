@@ -9,7 +9,7 @@ app = Flask(__name__)
 AUTH = Auth()
 
 
-@app.route('/', methods=["GET"], strict_slashes=False)
+@app.route("/", methods=["GET"], strict_slashes=False)
 def hello_world() -> str:
     """GET /
     :return: the JSON payload {"message": "Bienvenue"}
@@ -17,7 +17,7 @@ def hello_world() -> str:
     return jsonify({"message": "Bienvenue"})
 
 
-@app.route('/users', methods=["POST"], strict_slashes=False)
+@app.route("/users", methods=["POST"], strict_slashes=False)
 def users() -> str:
     """POST /users
     :return: JSON payload with two forms
@@ -33,7 +33,7 @@ def users() -> str:
         return jsonify({"message": "email already registered"}), 400
 
 
-@app.route('/sessions', methods=["POST"], strict_slashes=False)
+@app.route("/sessions", methods=["POST"], strict_slashes=False)
 def login() -> str:
     """POST /sessions
     :return: JSON payload of the form of
@@ -51,7 +51,7 @@ def login() -> str:
     return res
 
 
-@app.route('/sessions', methods=["DELETE"], strict_slashes=False)
+@app.route("/sessions", methods=["DELETE"], strict_slashes=False)
 def logout() -> None:
     """DELETE /sessions
     :return: nothing and redirect to home route '/'
@@ -64,10 +64,10 @@ def logout() -> None:
 
     AUTH.destroy_session(user.id)
 
-    return redirect('/')
+    return redirect("/")
 
 
-@app.route('/profile', methods=["GET"], strict_slashes=False)
+@app.route("/profile", methods=["GET"], strict_slashes=False)
 def profile() -> str:
     """GET /profile
     :return: JSON payload of the form of
@@ -86,7 +86,7 @@ def profile() -> str:
     return jsonify({"email": user.email}), 200
 
 
-@app.route('/reset_password', methods=["POST"], strict_slashes=False)
+@app.route("/reset_password", methods=["POST"], strict_slashes=False)
 def get_reset_password_token() -> str:
     """POST /reset_password
     :return: JSON payload of the form of
@@ -102,7 +102,7 @@ def get_reset_password_token() -> str:
     except ValueError:
         abort(403)
 
-    return jsonify({"email": email, "reset_token": reset token}), 200
+    return jsonify({"email": email, "reset_token": reset_token}), 200
 
 
 if __name__ == "__main__":
