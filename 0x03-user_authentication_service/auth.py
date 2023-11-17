@@ -6,6 +6,7 @@ import uuid
 from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
+from typing import Union
 
 
 def _generate_uuid() -> str:
@@ -55,3 +56,6 @@ class Auth:
         else:
             user.session_id = _generate_uuid()
             return user.session_id
+
+    def get_user_from_session_id(self, session_id: str) -> Union[str, None]:
+        pass
