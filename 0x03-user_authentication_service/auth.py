@@ -48,4 +48,10 @@ class Auth:
 
     def create_session(self, email: str) -> str:
         """Get session ID"""
-        pass
+        try:
+            user = self._db.find_user_by(email=email)
+        except NoResultFound:
+            return None
+        else:
+            user.session_id = _generate_uuid()
+            return user.session_id
