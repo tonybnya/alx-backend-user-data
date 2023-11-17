@@ -51,7 +51,7 @@ def login() -> str:
     return res
 
 
-@app.route('/logout', methods=["DELETE"], strict_slashes=False)
+@app.route('/sessions', methods=["DELETE"], strict_slashes=False)
 def logout() -> None:
     """GET /
     :return: nothing and redirect to home route '/'
