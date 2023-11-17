@@ -53,7 +53,7 @@ def login() -> str:
 
 @app.route('/sessions', methods=["DELETE"], strict_slashes=False)
 def logout() -> None:
-    """GET /
+    """DELETE /sessions
     :return: nothing and redirect to home route '/'
     """
     user_cookie = request.cookies.get("session_id", None)
