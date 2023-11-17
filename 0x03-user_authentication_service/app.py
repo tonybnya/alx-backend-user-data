@@ -67,12 +67,23 @@ def logout() -> None:
     return redirect('/')
 
 
+@app.route('/profile', methods=["GET"], strict_slashes=False)
 def profile() -> str:
     """GET /profile
     :return: JSON payload of the form of
     - {"email": "<user email>"}
     """
-    pass
+    user_cookie = request.cookies.get("session_id", None)
+
+    if user_cookie is None:
+        abort(403)
+
+    user = AUTH.get_user_from_session_id(user_cookie)
+
+    if user is None:
+        abort(403)
+
+    return jsonify({"email": user.email}), 200
 
 
 if __name__ == "__main__":
