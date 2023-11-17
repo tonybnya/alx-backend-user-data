@@ -45,3 +45,7 @@ class Auth:
                 password=password.encode(),
                 hashed_password=user.hashed_password
             )
+
+    def create_session(self, email: str) -> str:
+        """Get session ID"""
+        pass
