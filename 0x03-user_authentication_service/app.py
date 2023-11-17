@@ -67,5 +67,13 @@ def logout() -> None:
     return redirect('/')
 
 
+def profile() -> str:
+    """GET /profile
+    :return: JSON payload of the form of
+    - {"email": "<user email>"}
+    """
+    pass
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
