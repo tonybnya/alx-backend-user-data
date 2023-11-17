@@ -93,7 +93,7 @@ def get_reset_password_token() -> str:
     - {"email": "<user email>", "reset_token": "<reset token>"}
     """
     try:
-        email = request.form("email")
+        email = request.form["email"]
     except KeyError:
         abort(403)
 
