@@ -2,9 +2,15 @@
 """Module for authentication
 """
 import bcrypt
+import uuid
 from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
+
+
+def _generate_uuid() -> str:
+    """Generate UUIDs"""
+    return str(uuid.uuid4())
 
 
 def _hash_password(password: str) -> str:
