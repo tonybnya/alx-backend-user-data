@@ -34,11 +34,11 @@ class DB:
         """create user
         """
         try:
-            user = User(email=email, hashed_password=hashed_password)
-            self._session.add(user)
+            new_user = new_user(email=email, hashed_password=hashed_password)
+            self._session.add(new_user)
             self._session.commit()
         except Exception:
             self._session.rollback()
-            user = None
+            new_user = None
 
-        return user
+        return new_user
